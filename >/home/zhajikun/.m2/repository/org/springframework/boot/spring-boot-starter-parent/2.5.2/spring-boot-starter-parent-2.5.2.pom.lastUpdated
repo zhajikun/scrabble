@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Jun 26 21:23:04 CDT 2021
+http\://repo1.maven.org/maven2/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:2.5.2 from/to central (http\://repo1.maven.org/maven2/)\: Transfer failed for http\://repo1.maven.org/maven2/org/springframework/boot/spring-boot-starter-parent/2.5.2/spring-boot-starter-parent-2.5.2.pom 501 HTTPS Required
+@default-central-http\://repo1.maven.org/maven2/.lastUpdated=1624760373301
+@default-planetmirror.com-http\://downloads.planetmirror.com/pub/maven2/.lastUpdated=1624760584605
+http\://downloads.planetmirror.com/pub/maven2/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:2.5.2 from/to planetmirror.com (http\://downloads.planetmirror.com/pub/maven2)\: Transfer failed for http\://downloads.planetmirror.com/pub/maven2/org/springframework/boot/spring-boot-starter-parent/2.5.2/spring-boot-starter-parent-2.5.2.pom
