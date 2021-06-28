@@ -1,42 +1,50 @@
 package com.example.scrabble.service;
 
+import com.example.scrabble.model.Trie;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Stream;
 
 @Service
 @Slf4j
 public class ScrabbleService {
 
-   Set<String> dictionarySet;
-   private int count = 0;
+   private Trie trie;
+   private String fileName = "dictionary.txt";
 
     @PostConstruct
     private void initDictionary(){
         System.out.println("reading dict!");
-        dictionarySet = getDictionarySet();
-        count++;
+        trie = new Trie();
+        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+
+            stream.forEach(line -> {
+                System.out.println(line);
+                trie.insert(line);
+
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public List<String> getScrabbleList(String letters){
 
        log.info("Input word is: " + letters);
-     //   return Arrays.asList("Hello ", letters, " ! ");
-       List<String> list = new ArrayList<>(dictionarySet);
-        return list;
+
+        return Arrays.asList("Hello", "World!");
     }
 
-    private Set<String> getDictionarySet(){
-        if(null == dictionarySet){
-            dictionarySet = new TreeSet<>();
-            dictionarySet.add("count: " + count);
-            dictionarySet.add("test");
-            dictionarySet.add("World");
-            dictionarySet.add("Hello");
-        }
+    public boolean searchScrabble(String letters) {
 
-        return dictionarySet;
+        return trie.search(letters);
     }
 }

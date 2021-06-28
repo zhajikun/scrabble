@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@RequestMapping(path = "/v1")
+@RequestMapping
 public interface ScrabbleV1Interface {
 
     @GetMapping(value = "words/{letters}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<String> getScrabble(@PathVariable String letters);
+    List<String> getScrabble(@PathVariable String letters);
+
+    @GetMapping(value = "search/{letters}", produces = MediaType.APPLICATION_JSON_VALUE)
+    boolean searchScrabble(@PathVariable String letters);
 
 }
